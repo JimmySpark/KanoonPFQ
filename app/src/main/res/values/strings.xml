@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">KanoonPFQ</string>
+    <string name="app_name">کانون پرورش فکری قم</string>
+    <string name="classes_title">کارگاه های آموزشی</string>
+    <string name="schools_title">مراکز آموزشی</string>
+    <string name="products_title">محصولات فرهنگی هنری</string>
+    <string name="shops_title">مراکز عرضه محصولات</string>
+    <string name="about_title">درباره کانون</string>
 </resources>
