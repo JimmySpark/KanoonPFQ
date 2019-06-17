@@ -1,6 +1,5 @@
 package ir.spark_team.kanoonpfq.Adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -16,18 +15,17 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import ir.spark_team.kanoonpfq.Model.Class;
 import ir.spark_team.kanoonpfq.R;
 
 public class RecyclerClassesAdapter extends RecyclerView.Adapter<RecyclerClassesAdapter.RecyclerViewHolder> {
 
     Context context;
-    List<Integer> iconList;
-    List<String> titleList;
+    List<Class> classesList;
 
-    public RecyclerClassesAdapter(Context context, List<Integer> iconList, List<String> titleList) {
+    public RecyclerClassesAdapter(Context context, List<Class> classesList) {
         this.context = context;
-        this.iconList = iconList;
-        this.titleList = titleList;
+        this.classesList = classesList;
     }
 
     @NonNull
@@ -36,15 +34,13 @@ public class RecyclerClassesAdapter extends RecyclerView.Adapter<RecyclerClasses
         return new RecyclerViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_classes, viewGroup, false));
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(@NonNull final RecyclerViewHolder holder, int position) {
 
-        Integer icon = iconList.get(position);
-        final String title = titleList.get(position);
+        final Class classes = classesList.get(position);
 
-        holder.imgIcon.setImageResource(icon);
-        holder.txtTitle.setText(title);
+        holder.imgIcon.setImageResource(classes.getIcon());
+        holder.txtTitle.setText(classes.getTitle());
 
         switch (position % 10) {
 
@@ -93,7 +89,7 @@ public class RecyclerClassesAdapter extends RecyclerView.Adapter<RecyclerClasses
 
                         holder.item.setScaleX(1f);
                         holder.item.setScaleY(1f);
-                        Toast.makeText(context, title, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, classes.getTitle(), Toast.LENGTH_SHORT).show();
                     }
                 }, 8);
             }
@@ -102,7 +98,7 @@ public class RecyclerClassesAdapter extends RecyclerView.Adapter<RecyclerClasses
 
     @Override
     public int getItemCount() {
-        return titleList.size();
+        return classesList.size();
     }
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {

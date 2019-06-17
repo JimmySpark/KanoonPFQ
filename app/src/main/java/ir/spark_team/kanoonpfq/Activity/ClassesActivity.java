@@ -7,11 +7,13 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import ir.spark_team.kanoonpfq.Adapter.RecyclerClassesAdapter;
+import ir.spark_team.kanoonpfq.Model.Class;
 import ir.spark_team.kanoonpfq.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -19,9 +21,9 @@ public class ClassesActivity extends AppCompatActivity {
 
     Context context = this;
     ImageView back;
+    TextView title;
     RecyclerView recyclerClasses;
-    List<String> titles;
-    List<Integer> icons;
+    List<Class> classes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,9 @@ public class ClassesActivity extends AppCompatActivity {
             }
         });
 
+        //Title
+        title.setText(R.string.classes_title);
+
         //Classes
         setClasses();
     }
@@ -51,77 +56,34 @@ public class ClassesActivity extends AppCompatActivity {
 
         back = findViewById(R.id.back);
         recyclerClasses = findViewById(R.id.recycler_classes);
+        title = findViewById(R.id.title);
     }
 
     private void setClasses() {
 
-        icons = new ArrayList<>();
-        icons.add(R.drawable.ic_paint);
-        icons.add(R.drawable.ic_drawing);
-        icons.add(R.drawable.ic_hand_writing);
-        icons.add(R.drawable.ic_innovation);
-        icons.add(R.drawable.ic_print_color);
-        icons.add(R.drawable.ic_color_game);
-        icons.add(R.drawable.ic_paint_cloth);
-        icons.add(R.drawable.ic_collage);
-        icons.add(R.drawable.ic_vocal_group);
-        icons.add(R.drawable.ic_animation);
-        icons.add(R.drawable.ic_paint);
-        icons.add(R.drawable.ic_drawing);
-        icons.add(R.drawable.ic_hand_writing);
-        icons.add(R.drawable.ic_innovation);
-        icons.add(R.drawable.ic_print_color);
-        icons.add(R.drawable.ic_color_game);
-        icons.add(R.drawable.ic_paint_cloth);
-        icons.add(R.drawable.ic_collage);
-        icons.add(R.drawable.ic_vocal_group);
-        icons.add(R.drawable.ic_animation);
-        icons.add(R.drawable.ic_paint);
-        icons.add(R.drawable.ic_drawing);
-        icons.add(R.drawable.ic_hand_writing);
-        icons.add(R.drawable.ic_innovation);
-        icons.add(R.drawable.ic_print_color);
-        icons.add(R.drawable.ic_color_game);
-        icons.add(R.drawable.ic_paint_cloth);
-        icons.add(R.drawable.ic_collage);
-        icons.add(R.drawable.ic_vocal_group);
-        icons.add(R.drawable.ic_animation);
-
-        titles = new ArrayList<>();
-        titles.add("نقاشی");
-        titles.add("طراحی");
-        titles.add("خوشنویسی");
-        titles.add("پرورش خلاقیت هنری");
-        titles.add("چاپ و رنگ");
-        titles.add("رنگ و بازی");
-        titles.add("نقاشی روی پارچه");
-        titles.add("کلاژ");
-        titles.add("سرود کودکانه");
-        titles.add("انیمیشین");
-        titles.add("نقاشی");
-        titles.add("طراحی");
-        titles.add("خوشنویسی");
-        titles.add("پرورش خلاقیت هنری");
-        titles.add("چاپ و رنگ");
-        titles.add("رنگ و بازی");
-        titles.add("نقاشی روی پارچه");
-        titles.add("کلاژ");
-        titles.add("سرود کودکانه");
-        titles.add("انیمیشین");
-        titles.add("نقاشی");
-        titles.add("طراحی");
-        titles.add("خوشنویسی");
-        titles.add("پرورش خلاقیت هنری");
-        titles.add("چاپ و رنگ");
-        titles.add("رنگ و بازی");
-        titles.add("نقاشی روی پارچه");
-        titles.add("کلاژ");
-        titles.add("سرود کودکانه");
-        titles.add("انیمیشین");
-
+        classes = new ArrayList<>();
+        classes.add(new Class(R.drawable.ic_paint, "نقاشی"));
+        classes.add(new Class(R.drawable.ic_drawing, "طراحی"));
+        classes.add(new Class(R.drawable.ic_hand_writing, "خوشنویسی"));
+        classes.add(new Class(R.drawable.ic_innovation, "پرورش خلاقیت هنری"));
+        classes.add(new Class(R.drawable.ic_print_color, "چاپ و رنگ"));
+        classes.add(new Class(R.drawable.ic_color_game, "رنگ و بازی"));
+        classes.add(new Class(R.drawable.ic_paint_cloth, "نقاشی روی پارچه"));
+        classes.add(new Class(R.drawable.ic_collage, "کلاژ"));
+        classes.add(new Class(R.drawable.ic_vocal_group, "سرود کودکانه"));
+        classes.add(new Class(R.drawable.ic_animation, "انیمیشین"));
+        classes.add(new Class(R.drawable.ic_paint, "نقاشی"));
+        classes.add(new Class(R.drawable.ic_drawing, "طراحی"));
+        classes.add(new Class(R.drawable.ic_hand_writing, "خوشنویسی"));
+        classes.add(new Class(R.drawable.ic_innovation, "پرورش خلاقیت هنری"));
+        classes.add(new Class(R.drawable.ic_print_color, "چاپ و رنگ"));
+        classes.add(new Class(R.drawable.ic_color_game, "رنگ و بازی"));
+        classes.add(new Class(R.drawable.ic_paint_cloth, "نقاشی روی پارچه"));
+        classes.add(new Class(R.drawable.ic_collage, "کلاژ"));
+        classes.add(new Class(R.drawable.ic_vocal_group, "سرود کودکانه"));
+        classes.add(new Class(R.drawable.ic_animation, "انیمیشین"));
 
         recyclerClasses.setLayoutManager(new GridLayoutManager(context, 2));
-        recyclerClasses.setAdapter(new RecyclerClassesAdapter(context, icons, titles));
-        //recyclerClasses.getAdapter().notifyDataSetChanged();
+        recyclerClasses.setAdapter(new RecyclerClassesAdapter(context, classes));
     }
 }

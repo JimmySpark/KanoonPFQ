@@ -1,10 +1,10 @@
 package ir.spark_team.kanoonpfq.Model;
 
-public class School {
+public class School_Shop {
 
     String title, address, phone;
 
-    public School(String title, String address, String phone) {
+    public School_Shop(String title, String address, String phone) {
         this.title = title;
         this.address = address;
         this.phone = phone;

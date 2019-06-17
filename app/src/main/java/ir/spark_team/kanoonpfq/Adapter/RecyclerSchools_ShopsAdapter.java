@@ -17,17 +17,17 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ir.spark_team.kanoonpfq.Model.School;
+import ir.spark_team.kanoonpfq.Model.School_Shop;
 import ir.spark_team.kanoonpfq.R;
 
-public class RecyclerSchoolsAdapter extends RecyclerView.Adapter<RecyclerSchoolsAdapter.RecyclerViewHolder> {
+public class RecyclerSchools_ShopsAdapter extends RecyclerView.Adapter<RecyclerSchools_ShopsAdapter.RecyclerViewHolder> {
 
     Context context;
-    List<School> schoolList;
+    List<School_Shop> schoolShopList;
 
-    public RecyclerSchoolsAdapter(Context context, List<School> schoolList) {
+    public RecyclerSchools_ShopsAdapter(Context context, List<School_Shop> schoolShopList) {
         this.context = context;
-        this.schoolList = schoolList;
+        this.schoolShopList = schoolShopList;
     }
 
     @NonNull
@@ -39,14 +39,14 @@ public class RecyclerSchoolsAdapter extends RecyclerView.Adapter<RecyclerSchools
     @Override
     public void onBindViewHolder(@NonNull final RecyclerViewHolder holder, int position) {
 
-        final School school = schoolList.get(position);
+        final School_Shop schoolShop = schoolShopList.get(position);
 
-        holder.txtTitle.setText(school.getTitle());
+        holder.txtTitle.setText(schoolShop.getTitle());
         holder.item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showMore(school.getTitle(), school.getAddress(), school.getPhone());
+                showMore(schoolShop.getTitle(), schoolShop.getAddress(), schoolShop.getPhone());
             }
         });
         holder.showOnMap.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +60,7 @@ public class RecyclerSchoolsAdapter extends RecyclerView.Adapter<RecyclerSchools
 
     @Override
     public int getItemCount() {
-        return schoolList.size();
+        return schoolShopList.size();
     }
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
@@ -78,7 +78,7 @@ public class RecyclerSchoolsAdapter extends RecyclerView.Adapter<RecyclerSchools
         }
     }
 
-    private void showMore(String title, String address, String phone){
+    private void showMore(String title, String address, String phone) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_school_info, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

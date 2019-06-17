@@ -1,8 +1,10 @@
 package ir.spark_team.kanoonpfq.Activity;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,7 +12,10 @@ import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -34,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     CardView itemShops;
     CardView itemAbout;
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
                         itemShops.setScaleX(1f);
                         itemShops.setScaleY(1f);
-                        Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(context, ShopsActivity.class));
                     }
                 }, 8);
             }
@@ -176,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
 
                         itemAbout.setScaleX(1f);
                         itemAbout.setScaleY(1f);
-                        Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
+                        showAboutDialog();
                     }
                 }, 8);
             }
@@ -211,5 +215,58 @@ public class MainActivity extends AppCompatActivity {
                 "پایان کار غرفه فرهنگی هنری و ادبی کانون استان قم در نمایشگاه شب های فیروزه ای");
         sliderCaptions.add("با حضور دبیر انجمن سرود کانون کشور\n" +
                 "کارگاه آموزشی سرود در کانون قم برگزار شد");
+    }
+
+    private void showAboutDialog() {
+
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_about, null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(view);
+
+        TextView txtAbout = view.findViewById(R.id.txtAbout);
+
+        AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.bg_dialog));
+        txtAbout.setText("نام: کانون پرورش فکری کودکان و نوجوانان \n" +
+                "\n" +
+                "سال تاسیس: 1344 \n" +
+                "\n" +
+                "شخصیت حقوقی: شرکت سهامی دولتی بر اساس مصوبه قانونی مورخ 13/2/1359 \n" +
+                "\n" +
+                "شرایط عضویت: داشتن شرایط سنی (6-16 سال)، حضور والدین هنگام ثبت نام، پرداخت حق عضویت، دو قطعه عکس \n" +
+                "\n" +
+                " \n" +
+                "\n" +
+                "تاریخچه: \n" +
+                "\n" +
+                "کانون پرورش فکری کودکان و نوجوانان به عنوان یک موسسه خیریه و غیر انتفاعی بازرگانی در دی ماه سال 1344 تاسیس شد. تا سال 1358 زیر نظر هیئت امنا، هیئت مدیره و مدیر عامل فعالیت می کرد. \n" +
+                "\n" +
+                "بر اساس جلسه 31/2/59 شورای انقلاب جمهوری اسلامی ایران، اساس نامه کانون با تغییراتی تصویب و به صورت یک شرکت دولتی وابسته به وزارت فرهنگ و آموزش عالی درآمد و در همان سال پیش از آن که به طورکامل تحت پوشش این وزارت خانه قرار گیرد نظارت آن به وزارت آموزش و پرورش سپرده شد. \n" +
+                "\n" +
+                " \n" +
+                "\n" +
+                "هدف اصلی: \n" +
+                "\n" +
+                "ایجاد امکانات لازم جهت رشد و خلاقیت کودکان و نوجوانان و شکوفایی استعداد های هنری آنها بر اساس ارزشهای نظام تعلیم و تربیت اسلامی در اوقات فراغت است. \n" +
+                "\n" +
+                "وظایف کلی: \n" +
+                "\n" +
+                "یکی از مهمترین وظایف کانون، تاسیس مراکز جهت ارائه فعالیتهای فرهنگی هنری، ادبی و عرضه کتاب مخصوص کودکان و نوجوانان در نقاط مختلف کشور به منظور غنی ساختن اوقات فراغت، کشف استعداد های خلاق و ترویج ادبیات کودک و نوجوان و همچنین همکاری با سایر سازمان ها و موسساتی است که عملکرد و خدمت مشابهی با اهداف کانون دارند از وظایف کلی کانون می باشد. \n" +
+                "\n" +
+                " \n" +
+                "\n" +
+                "آدرس و شماره تلفن دفتر استان قم: \n" +
+                "\n" +
+                "شهرک قدس، انتهای 45 متری چمران جنوبی، ابتدای 20 متری هدایت، مجمتع فرهنگی هنری کانون پرورش فکری کودکان و نوجوانان استان قم. تلفن: 32857750 – 32857760 تلفکس: 32857800 ");
+        dialog.show();
+
+        Display display = ((Activity) context).getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+        width = (int) ((width) * (4.5 / 5));
+        height = (int) ((height) * (4.5 / 5));
+        dialog.getWindow().setLayout(width, height);
     }
 }
