@@ -16,7 +16,6 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -140,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
                         itemProducts.setScaleX(1f);
                         itemProducts.setScaleY(1f);
-                        Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(context, ProductCategoriesActivity.class));
                     }
                 }, 8);
             }

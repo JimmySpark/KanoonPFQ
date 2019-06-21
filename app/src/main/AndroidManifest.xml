@@ -10,7 +10,8 @@
         android:roundIcon = "@mipmap/ic_launcher_round"
         android:supportsRtl = "true"
         android:theme = "@style/AppTheme">
-        <activity android:name = ".Activity.ShopsActivity"></activity>
+        <activity android:name = ".Activity.ProductCategoriesActivity"></activity>
+        <activity android:name = ".Activity.ShopsActivity" />
         <activity android:name = ".Activity.SchoolsActivity" />
         <activity android:name = ".Activity.ClassesActivity" />
         <activity android:name = ".Activity.MainActivity">
