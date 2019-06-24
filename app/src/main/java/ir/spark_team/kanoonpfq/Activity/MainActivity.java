@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import ir.spark_team.kanoonpfq.Adapter.SliderAdapterWithViewPager;
+import ir.spark_team.kanoonpfq.Adapter.SliderAdapter;
 import ir.spark_team.kanoonpfq.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Slider
         setSliderValues();
-        slider.setAdapter(new SliderAdapterWithViewPager(context, sliderPics, sliderCaptions));
+        slider.setAdapter(new SliderAdapter(context, sliderPics, sliderCaptions));
         final long[] time = {10000};
         new Timer().schedule(new TimerTask() {
             @Override

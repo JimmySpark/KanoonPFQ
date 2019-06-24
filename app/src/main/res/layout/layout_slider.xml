@@ -26,8 +26,7 @@
             android:textColor="#fff"
             android:layout_alignParentBottom="true"
             android:gravity="right"
-            android:maxLength="100"
-            android:textSize="18sp"/>
+            android:maxLength="100"/>
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

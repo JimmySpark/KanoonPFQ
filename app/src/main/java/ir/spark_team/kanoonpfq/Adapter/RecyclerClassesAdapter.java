@@ -1,6 +1,7 @@
 package ir.spark_team.kanoonpfq.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
@@ -11,10 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
+import ir.spark_team.kanoonpfq.Activity.ClassInfoActivity;
 import ir.spark_team.kanoonpfq.Model.Class;
 import ir.spark_team.kanoonpfq.R;
 
@@ -89,7 +90,9 @@ public class RecyclerClassesAdapter extends RecyclerView.Adapter<RecyclerClasses
 
                         holder.item.setScaleX(1f);
                         holder.item.setScaleY(1f);
-                        Toast.makeText(context, classes.getTitle(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(context, ClassInfoActivity.class);
+                        intent.putExtra("title", classes.getTitle());
+                        context.startActivity(intent);
                     }
                 }, 8);
             }

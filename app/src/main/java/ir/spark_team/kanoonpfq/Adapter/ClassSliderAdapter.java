@@ -14,16 +14,14 @@ import java.util.List;
 
 import ir.spark_team.kanoonpfq.R;
 
-public class SliderAdapterWithViewPager extends PagerAdapter {
+public class ClassSliderAdapter extends PagerAdapter {
 
     Context context;
     List<Drawable> pics;
-    List<String> caps;
 
-    public SliderAdapterWithViewPager(Context context, List<Drawable> pics, List<String> caps) {
+    public ClassSliderAdapter(Context context, List<Drawable> pics) {
         this.context = context;
         this.pics = pics;
-        this.caps = caps;
     }
 
     @Override
@@ -40,13 +38,11 @@ public class SliderAdapterWithViewPager extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull final ViewGroup container, int position) {
 
-        final View view = LayoutInflater.from(context).inflate(R.layout.layout_slider, container, false);
+        final View view = LayoutInflater.from(context).inflate(R.layout.layout_class_slider, container, false);
 
         final ImageView img = view.findViewById(R.id.imgSlider);
-        final TextView cap = view.findViewById(R.id.captionSlider);
 
         img.setImageDrawable(pics.get(position));
-        cap.setText(caps.get(position));
         container.addView(view);
 
         return view;

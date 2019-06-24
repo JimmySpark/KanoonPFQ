@@ -15,6 +15,7 @@ import java.util.List;
 import ir.spark_team.kanoonpfq.Adapter.RecyclerSchools_ShopsAdapter;
 import ir.spark_team.kanoonpfq.Model.School_Shop;
 import ir.spark_team.kanoonpfq.R;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ShopsActivity extends AppCompatActivity {
 
@@ -46,6 +47,11 @@ public class ShopsActivity extends AppCompatActivity {
         setShops();
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
     private void initView() {
 
         back = findViewById(R.id.back);
@@ -56,8 +62,8 @@ public class ShopsActivity extends AppCompatActivity {
     private void setShops() {
 
         shops = new ArrayList<>();
-        shops.add(new School_Shop("فروشگاه قدس", "شهرک قدس، انتهای ولی عصر 7", "32857323"));
-        shops.add(new School_Shop("فروشگاه نرگس", "امامزاده ابراهیم، روبه روی شهرداری منطقه 2، انتهای بوستان نرگس", "38903861"));
+        shops.add(new School_Shop("فروشگاه قدس", "شهرک قدس، انتهای ولی عصر 7", "32857323", "34.650274, 50.888445"));
+        shops.add(new School_Shop("فروشگاه نرگس", "امامزاده ابراهیم، روبه روی شهرداری منطقه 2، انتهای بوستان نرگس", "38903861", "34.650274, 50.888445"));
 
         recyclerShops.setLayoutManager(new LinearLayoutManager(context));
         recyclerShops.setAdapter(new RecyclerSchools_ShopsAdapter(context, shops));

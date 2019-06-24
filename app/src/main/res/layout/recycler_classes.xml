@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="horizontal">
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    android:layout_width = "match_parent"
+    android:layout_height = "wrap_content"
+    android:gravity = "center"
+    android:orientation = "horizontal">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="16dp"
-        app:cardUseCompatPadding="true">
+        android:id = "@+id/item"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        app:cardCornerRadius = "16dp"
+        app:cardUseCompatPadding = "true">
 
         <LinearLayout
-            android:id="@+id/itemLay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/classes_item1"
-            android:gravity="center_vertical"
-            android:padding="8dp">
+            android:id = "@+id/itemLay"
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:background = "@drawable/classes_item1"
+            android:gravity = "center_vertical"
+            android:padding = "8dp">
 
             <ImageView
-                android:id="@+id/imgIcon"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@drawable/bg_main_item_icon"
-                android:src="@drawable/ic_paint" />
+                android:id = "@+id/imgIcon"
+                android:layout_width = "48dp"
+                android:layout_height = "48dp"
+                android:background = "@drawable/bg_main_item_icon"
+                android:src = "@drawable/ic_paint" />
 
             <TextView
-                android:id="@+id/txtTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="0.9"
-                android:gravity="center"
-                android:text="نقاشی"
-                android:textColor="#fff"
-                android:textSize="22sp" />
+                android:id = "@+id/txtTitle"
+                android:layout_width = "0dp"
+                android:layout_height = "wrap_content"
+                android:layout_marginStart = "8dp"
+                android:layout_marginEnd = "8dp"
+                android:layout_weight = "0.9"
+                android:gravity = "center"
+                android:text = "نقاشی"
+                android:textColor = "#fff"
+                android:textSize = "22sp" />
 
         </LinearLayout>
 
