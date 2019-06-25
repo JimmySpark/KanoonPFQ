@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    tools:context = ".Activity.ProductsActivity"
+    android:background="@mipmap/bg_primary"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    app:chainUseRtl="true">
+
+    <include layout="@layout/toolbar"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

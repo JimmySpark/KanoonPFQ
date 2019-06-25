@@ -1,11 +1,11 @@
 package ir.spark_team.kanoonpfq.Model;
 
-public class ProductCategory {
+public class Product {
 
     String title;
     int image;
 
-    public ProductCategory(String title, int image) {
+    public Product(String title, int image) {
         this.title = title;
         this.image = image;
     }

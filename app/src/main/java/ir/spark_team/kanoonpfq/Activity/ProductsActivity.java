@@ -12,12 +12,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import ir.spark_team.kanoonpfq.Adapter.RecyclerProductCategoriesAdapter;
-import ir.spark_team.kanoonpfq.Model.ProductCategory;
+import ir.spark_team.kanoonpfq.Adapter.RecyclerProductsAdapter;
+import ir.spark_team.kanoonpfq.Model.Product;
 import ir.spark_team.kanoonpfq.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class ProductCategoriesActivity extends AppCompatActivity {
+public class ProductsActivity extends AppCompatActivity {
 
     Context context = this;
     ImageView back;
@@ -27,7 +27,7 @@ public class ProductCategoriesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_categories);
+        setContentView(R.layout.activity_products);
         initView();
 
         //Back
@@ -42,8 +42,8 @@ public class ProductCategoriesActivity extends AppCompatActivity {
         //Title
         title.setText(R.string.products_title);
 
-        //Classes
-        setProductCategories();
+        //Products
+        setProducts();
     }
 
     @Override
@@ -55,18 +55,18 @@ public class ProductCategoriesActivity extends AppCompatActivity {
 
         back = findViewById(R.id.back);
         title = findViewById(R.id.title);
-        recyclerProductCategories = findViewById(R.id.recycler_product_category);
+        recyclerProductCategories = findViewById(R.id.recycler_products);
     }
 
-    private void setProductCategories() {
+    private void setProducts() {
 
-        List<ProductCategory> productCategories = new ArrayList<>();
-        productCategories.add(new ProductCategory("کتاب", R.drawable.img_book));
-        productCategories.add(new ProductCategory("لوازم التحریر", R.drawable.img_stationery));
-        productCategories.add(new ProductCategory("لوح فشرده بازی و انیمیشن", R.drawable.img_anim_game));
-        productCategories.add(new ProductCategory("عروسک دارا و سارا", R.drawable.img_dara_sara));
+        List<Product> productCategories = new ArrayList<>();
+        productCategories.add(new Product("کتاب", R.drawable.img_book));
+        productCategories.add(new Product("لوازم التحریر", R.drawable.img_stationery));
+        productCategories.add(new Product("لوح فشرده بازی و انیمیشن", R.drawable.img_anim_game));
+        productCategories.add(new Product("عروسک دارا و سارا", R.drawable.img_dara_sara));
 
         recyclerProductCategories.setLayoutManager(new GridLayoutManager(context, 2));
-        recyclerProductCategories.setAdapter(new RecyclerProductCategoriesAdapter(context, productCategories));
+        recyclerProductCategories.setAdapter(new RecyclerProductsAdapter(context, productCategories));
     }
 }

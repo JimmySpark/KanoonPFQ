@@ -3,7 +3,6 @@ package ir.spark_team.kanoonpfq.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -86,9 +85,8 @@ public class ClassInfoActivity extends AppCompatActivity {
                 sliderPics.add(getResources().getDrawable(R.drawable.collage3));
                 break;
             default:
-                sliderPics.add(getResources().getDrawable(R.drawable.img1));
-                sliderPics.add(getResources().getDrawable(R.drawable.img2));
-                sliderPics.add(getResources().getDrawable(R.drawable.img3));
+                sliderPics.add(getResources().getDrawable(R.drawable.img_logo));
+                sliderPics.add(getResources().getDrawable(R.drawable.img_logo));
                 break;
         }
     }

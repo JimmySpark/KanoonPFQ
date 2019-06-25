@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
                         itemProducts.setScaleX(1f);
                         itemProducts.setScaleY(1f);
-                        startActivity(new Intent(context, ProductCategoriesActivity.class));
+                        startActivity(new Intent(context, ProductsActivity.class));
                     }
                 }, 8);
             }
@@ -205,9 +205,9 @@ public class MainActivity extends AppCompatActivity {
 
         sliderPics = new ArrayList<>();
         sliderCaptions = new ArrayList<>();
-        sliderPics.add(getResources().getDrawable(R.drawable.img1));
-        sliderPics.add(getResources().getDrawable(R.drawable.img2));
-        sliderPics.add(getResources().getDrawable(R.drawable.img3));
+        sliderPics.add(getResources().getDrawable(R.mipmap.img1));
+        sliderPics.add(getResources().getDrawable(R.mipmap.img2));
+        sliderPics.add(getResources().getDrawable(R.mipmap.img3));
         sliderCaptions.add("با حضور فدایی حسین در کانون استان قم\n" +
                 "قدم به قدم نزدیک تر به تولیدات نمایشی");
         sliderCaptions.add("پس از یک هفته فعالیت\n" +

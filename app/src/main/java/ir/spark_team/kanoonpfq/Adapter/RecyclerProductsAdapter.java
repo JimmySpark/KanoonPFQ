@@ -1,6 +1,8 @@
 package ir.spark_team.kanoonpfq.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,32 +14,33 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ir.spark_team.kanoonpfq.Model.ProductCategory;
+import ir.spark_team.kanoonpfq.Activity.ProductShowActivity;
+import ir.spark_team.kanoonpfq.Model.Product;
 import ir.spark_team.kanoonpfq.R;
 
-public class RecyclerProductCategoriesAdapter extends RecyclerView.Adapter<RecyclerProductCategoriesAdapter.RecyclerViewHolder> {
+public class RecyclerProductsAdapter extends RecyclerView.Adapter<RecyclerProductsAdapter.RecyclerViewHolder> {
 
     Context context;
-    List<ProductCategory> productCategoryList;
+    List<Product> productList;
 
-    public RecyclerProductCategoriesAdapter(Context context, List<ProductCategory> productCategoryList) {
+    public RecyclerProductsAdapter(Context context, List<Product> productList) {
         this.context = context;
-        this.productCategoryList = productCategoryList;
+        this.productList = productList;
     }
 
     @NonNull
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new RecyclerViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_product_categories, viewGroup, false));
+        return new RecyclerViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_products, viewGroup, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final RecyclerViewHolder holder, int position) {
 
-        ProductCategory productCategory = productCategoryList.get(position);
+        final Product product = productList.get(position);
 
-        holder.imgIcon.setImageResource(productCategory.getImage());
-        holder.txtTitle.setText(productCategory.getTitle());
+        holder.imgIcon.setImageResource(product.getImage());
+        holder.txtTitle.setText(product.getTitle());
 
         switch (position % 10) {
 
@@ -72,11 +75,33 @@ public class RecyclerProductCategoriesAdapter extends RecyclerView.Adapter<Recyc
                 holder.itemLay.setBackground(context.getResources().getDrawable(R.drawable.classes_item10));
                 break;
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                holder.itemView.setScaleX(0.98f);
+                holder.itemView.setScaleY(0.98f);
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        holder.itemView.setScaleX(1f);
+                        holder.itemView.setScaleY(1f);
+
+                        Intent intent = new Intent(context, ProductShowActivity.class);
+                        intent.putExtra("title", product.getTitle());
+                        context.startActivity(intent);
+                    }
+                }, 8);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return productCategoryList.size();
+        return productList.size();
     }
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
