@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ public class RecyclerProductShowAdapter extends RecyclerView.Adapter<RecyclerPro
 
     Context context;
     List<ProductShow> productShowList;
+    int lastPosition = -1;
 
     public RecyclerProductShowAdapter(Context context, List<ProductShow> productShowList) {
         this.context = context;
@@ -37,6 +39,12 @@ public class RecyclerProductShowAdapter extends RecyclerView.Adapter<RecyclerPro
 
         holder.image.setImageResource(productShow.getImage());
         holder.title.setText(productShow.getTitle());
+
+        if (position > lastPosition) {
+
+            holder.itemView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.zoom_in));
+            lastPosition = position;
+        }
     }
 
     @Override

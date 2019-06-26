@@ -14,6 +14,7 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class RecyclerSchools_ShopsAdapter extends RecyclerView.Adapter<RecyclerS
 
     Context context;
     List<School_Shop> schoolShopList;
+    int lastPosition = -1;
 
     public RecyclerSchools_ShopsAdapter(Context context, List<School_Shop> schoolShopList) {
         this.context = context;
@@ -73,6 +75,12 @@ public class RecyclerSchools_ShopsAdapter extends RecyclerView.Adapter<RecyclerS
                 }, 8);
             }
         });
+
+        if (position > lastPosition) {
+
+            holder.itemView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_in_right));
+            lastPosition = position;
+        }
     }
 
     @Override

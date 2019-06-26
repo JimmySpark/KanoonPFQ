@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class RecyclerClassesAdapter extends RecyclerView.Adapter<RecyclerClasses
 
     Context context;
     List<Class> classesList;
+    int lastPosition = -1;
 
     public RecyclerClassesAdapter(Context context, List<Class> classesList) {
         this.context = context;
@@ -97,6 +99,12 @@ public class RecyclerClassesAdapter extends RecyclerView.Adapter<RecyclerClasses
                 }, 8);
             }
         });
+
+        if (position > lastPosition) {
+
+            holder.itemView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.zoom_in));
+            lastPosition = position;
+        }
     }
 
     @Override
