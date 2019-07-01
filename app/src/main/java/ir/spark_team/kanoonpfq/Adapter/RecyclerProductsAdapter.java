@@ -1,5 +1,6 @@
 package ir.spark_team.kanoonpfq.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -95,6 +96,7 @@ public class RecyclerProductsAdapter extends RecyclerView.Adapter<RecyclerProduc
                         Intent intent = new Intent(context, ProductShowActivity.class);
                         intent.putExtra("title", product.getTitle());
                         context.startActivity(intent);
+                        ((Activity)context).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                     }
                 }, 8);
             }

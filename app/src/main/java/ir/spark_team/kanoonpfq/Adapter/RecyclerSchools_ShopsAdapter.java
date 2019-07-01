@@ -78,7 +78,7 @@ public class RecyclerSchools_ShopsAdapter extends RecyclerView.Adapter<RecyclerS
 
         if (position > lastPosition) {
 
-            holder.itemView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_in_right));
+            holder.itemView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.slide_in_left_long));
             lastPosition = position;
         }
     }

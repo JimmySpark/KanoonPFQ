@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         itemClasses.setScaleX(1f);
                         itemClasses.setScaleY(1f);
                         startActivity(new Intent(context, ClassesActivity.class));
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                     }
                 }, 8);
             }
@@ -120,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                         itemSchools.setScaleX(1f);
                         itemSchools.setScaleY(1f);
                         startActivity(new Intent(context, SchoolsActivity.class));
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                     }
                 }, 8);
             }
@@ -140,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
                         itemProducts.setScaleX(1f);
                         itemProducts.setScaleY(1f);
                         startActivity(new Intent(context, ProductsActivity.class));
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                     }
                 }, 8);
             }
@@ -160,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
                         itemShops.setScaleX(1f);
                         itemShops.setScaleY(1f);
                         startActivity(new Intent(context, ShopsActivity.class));
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
                     }
                 }, 8);
             }

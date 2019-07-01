@@ -39,6 +39,7 @@ public class ClassInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 finish();
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
             }
         });
 
@@ -53,6 +54,12 @@ public class ClassInfoActivity extends AppCompatActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left);
     }
 
     private void initView() {
